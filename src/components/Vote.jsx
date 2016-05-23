@@ -1,4 +1,5 @@
 import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default React.createClass({
     getPair: function() {
@@ -10,6 +11,7 @@ export default React.createClass({
     hasVotedFor: function(entry) {
         return this.props.hasVoted === entry;
     },
+    mixins: [PureRenderMixin],
     render: function() {
         return <div className="voting">
             {this.getPair().map(entry =>
