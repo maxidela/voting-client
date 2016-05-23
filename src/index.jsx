@@ -17,7 +17,7 @@ socket.on('state', state => store.dispatch(setState(state)));
 const createStoreWithMiddleware = applyMiddleware(
     remoteActionMiddleware(socket)
 )(createStore)
-const store = createStoreWithMiddleware(reducer);
+const store = createStoreWithMiddleware(reducer, window.devToolsExtension && window.devToolsExtension());
 
 const routes = <Route component={App}>
     <Route path="/results" component={ResultsContainer} />
